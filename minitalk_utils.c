@@ -12,6 +12,8 @@ numberT0s returns : Null if the given param is Null
 get_number_len : returns 0 if num is 0 
                  returns -1 if the num is negative
                  returns the len of the num 
+
+s_ofd : string of digits
 */
 
 int_dt get_number_len(int_dt num)
@@ -31,7 +33,7 @@ int_dt get_number_len(int_dt num)
     return (len);
 }
 
-lint_dt stringT0n(char *string)
+lint_dt get_procid(char *string)
 {
     lint_dt result;
     uint_dt index;
@@ -49,10 +51,10 @@ lint_dt stringT0n(char *string)
     return (result);
 }
 
-Nothing printNum(int_dt num)
+Nothing digits_printer(lint_dt num)
 {
     int_dt len;
-    s_dt *newSTR;
+    s_dt *s_ofd;
 
     if (num < 0)
         return;
@@ -62,33 +64,18 @@ Nothing printNum(int_dt num)
         return;
     }
     len =  get_number_len(num);
-    newSTR = malloc((len + 1) * sizeof(s_dt));
-    if (!newSTR)
+    s_ofd = malloc((len + 1) * sizeof(s_dt));
+    if (!s_ofd)
         return;
-    newSTR[len] = '\0';
+    s_ofd[len] = '\0';
     len--;
     while (num > 0)
     {
-        newSTR[len] = (num % 10) + '0';
+        s_ofd[len] = (num % 10) + '0';
         num = num / 10;
         len--;
     }
-    printer(newSTR);
-    free(newSTR);
+    printer(s_ofd);
+    free(s_ofd);
 }
 
-
-int main()
-{
-    // lint_dt  s  = stringT0n("82874362");
-    // int_dt p = get_number_len();
-
-    // printf("the len is : %d", p);
-    // printf("result : %lld", s);
-
-
-    printNum(4678678);
-
-
-    return (0);
-}
