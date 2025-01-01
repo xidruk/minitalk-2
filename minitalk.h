@@ -18,7 +18,18 @@ typedef void Nothing;
 int printer(char *string);
 ssize_t get_len(char *string);
 int_dt get_number_len(int_dt num);
+lint_dt get_procid(char *string);
+Nothing error_tree(int_dt err_id);
+Nothing digits_printer(lint_dt num);
 
+
+// signal struct 
+
+typedef struct signal_info_struct {
+    lint_dt sgl_pid;
+    lint_dt sgl_status;
+    s_dt *sgl_string;
+} sgl_infos;
 
 #endif
 
